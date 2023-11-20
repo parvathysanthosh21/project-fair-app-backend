@@ -10,6 +10,14 @@ router.post('/user/register',userController.register)
 router.post('/user/login',userController.login)
 // add projects
 router.post('/projects/add',jwtMiddleware,multerConfig.single('projectimage'),projectController.addProjects)
+// getuserprojects  token required
+router.get('/user/all-projects',jwtMiddleware,projectController.allUserProjects)
+// getallprojects token required
+router.get('/projects/all',jwtMiddleware,projectController.getallProjects)
+// gethomeprojects
+router.get('/projects/home-projects',projectController.getHomeProjects)
+
+
 
 // export router
 module.exports = router
