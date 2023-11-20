@@ -56,4 +56,16 @@
                   - Collection validation of the MongoDB database can be done easily.
                   - Predefined Structure can be implemented on the collection.
                   - Constraints can be applied to documents of collections using Mongoose.
-                         
+
+          1. Node JS Library to communicate MongoDB
+         2. install Mongoose: npm i Mongoose
+         3. create a new folder for define db connection using Mongoose
+            - create a js file to edfine connectivity
+            - import Mongoose
+            - get connection string from process.env
+            - connect MongoDB with node using Mongoose
+            - import connection.js file in index.js file
+         4. Schema 
+         5. Model 
+
+   Middleware- function it contain 3 arguements    
