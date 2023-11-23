@@ -1,3 +1,4 @@
+
 const projects = require('../Models/projectSchema')
 
 // add projects
@@ -25,7 +26,7 @@ exports.addProjects = async (req,res)=>{
     }
 }
 
-// get user projects
+// get user projects - token required
 
 exports.allUserProjects = async(req,res)=>{
     const userId = req.payload
@@ -38,18 +39,22 @@ exports.allUserProjects = async(req,res)=>{
 }
 
 
-// get  all projects
+// get  all projects - token required
 
 exports.getallProjects = async(req,res)=>{
+    const searchKey = req.query.search
+    const query = {
+        languages:{$regex:searchKey,$options:"i"}
+    }
     try{
-        const allProjects = await projects.find()
+        const allProjects = await projects.find(query)
         res.status(200).json(allProjects)
     }catch(err){
         res.status(401).json(err)
     }
 }
 
-// get  all projects
+// get  home projects
 
 exports.getHomeProjects = async(req,res)=>{
     try{
